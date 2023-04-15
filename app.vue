@@ -1,6 +1,5 @@
-<template>
-  <div>
-    Hello
-    <!-- <NuxtWelcome /> -->
-  </div>
+<template lang="pug">
+div Hello
+
+  //  <NuxtWelcome /> 
 </template>
