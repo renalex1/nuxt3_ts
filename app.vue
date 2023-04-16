@@ -5,7 +5,7 @@ a(href="#" @click="view('counter')") Counter
 LazyHomeWelcome(v-if="page ==='home'")
 LazyCounter(v-if="page ==='counter'")
 
-
+NuxtPage
 
 
 </template>
