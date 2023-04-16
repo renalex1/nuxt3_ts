@@ -6,7 +6,7 @@
 .flex.justify-center.w-full.mt-20 
   .grid.grid-cols-2 
     div
-      img(:src="`/img/iphone${name.replaceAll(' ','')}.jpg`" width="300")
+      img(:src="`/img/iphone-${name.replaceAll(' ','-')}.jpg`" width="300")
     .text-center 
       h1.text3xl Iphone {{ name }}
       button.p-3.bg-indigo-900.text-white.rounded-md.mt-5.w-48(@click="addToCart") 
