@@ -8,7 +8,8 @@ div Hello About
 
 definePageMeta({
   // Disable any layouts for example login page
-  layout: false
+  layout: false,
+  title: "About",
 })
 
 </script>
