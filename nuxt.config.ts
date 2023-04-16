@@ -5,11 +5,18 @@ export default defineNuxtConfig({
   build: {
     // ...
   },
+  css: ['~/assets/scss/main.scss'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/_colors.scss" as *;'
+          additionalData: '@use "@/assets/scss/_colors.scss" as *;'
         }
       }
     }

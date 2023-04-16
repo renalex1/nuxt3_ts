@@ -1,5 +1,5 @@
 <template lang="pug">
-main.user-layout
+main.user-layout.bg-gray-100
   article.sidebar
     p Dashboard
     p Settings
@@ -16,5 +16,6 @@ main.user-layout
 .sidebar {
   display: flex;
   flex-direction: row;
+  color: $primary;
 }
 </style>
