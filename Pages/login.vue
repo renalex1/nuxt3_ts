@@ -15,17 +15,26 @@
             form(@submit.prevent="onSubmit")
               //  Email input 
               .mb-6
-                input.form-control.block.w-full.px-4.py-2.text-xl.font-normal.text-gray-700.bg-white.bg-clip-padding.border.border-solid.border-gray-300.rounded.transition.ease-in-out.m-0(class='focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none')
+                input( type="text"
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Email address"
+                  v-model="form.email")
               //  Password input 
               .mb-6
-                input.form-control.block.w-full.px-4.py-2.text-xl.font-normal.text-gray-700.bg-white.bg-clip-padding.border.border-solid.border-gray-300.rounded.transition.ease-in-out.m-0(class='focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none')
+                input(type="password"
+                  class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  placeholder="Password"
+                  v-model="form.password")
               //  Submit button 
-              button.inline-block.px-7.py-3.bg-blue-600.text-white.font-medium.text-sm.leading-snug.uppercase.rounded.shadow-md(class='hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full')
+              button(type="submit"
+                class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light")
                 span(v-if="isLoading") Loading...
                 span(v-else) Sign in
 </template>
 
-<script setup>
+<script setup lang="ts">
 const url = "https://reqres.in/api/login";
 
 const isLoading = ref(false);
@@ -36,7 +45,7 @@ const form = reactive({
   password: "cityslicka",
 });
 
-async function onSubmit () {
+const onSubmit = async () => {
   if (isLoading.value) return;
 
   isLoading.value = true;
@@ -46,12 +55,14 @@ async function onSubmit () {
   });
 
   isLoading.value = false;
+
   if (error.value) {
     _error.value = error.value.data.error;
     return;
   }
 
   const auth = useAuth();
+
   auth.value.isAuthenticated = true;
   navigateTo("/");
 }

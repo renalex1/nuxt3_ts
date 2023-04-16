@@ -6,8 +6,7 @@ export default defineNuxtConfig({
       title: 'Nuxt3',
     }
   },
-  modules: [
-  ],
+  modules: [],
   build: {
     // ...
   },
@@ -17,7 +16,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-
   vite: {
     css: {
       preprocessorOptions: {

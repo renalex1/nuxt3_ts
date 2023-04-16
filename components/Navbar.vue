@@ -1,12 +1,25 @@
 <template lang="pug">
 nav.bg-purple-900.shadow-lg.p-3.text-white.text-lg.flex.justify-between
-  NuxtLink(to="/") Home
-  NuxtLink(to="/about") About
-  NuxtLink(to="/iphone") Iphones
-  NuxtLink(to="/profile") Profile
-  p Cart({{ cart.length }})
+  .flex
+    NuxtLink.mr-4(to="/") Home
+    NuxtLink.mr-4(to="/about") About
+    NuxtLink.mr-4(to="/iphone") Iphones
+    p.mr-4 Cart({{ cart.length }})
+    p Total Route Changed : {{ pageVisitCount }}
+  div(v-if="auth.isAuthenticated")
+    NuxtLink(to="/profile") Profile
+    button.ml-4(@click="logout") Logout
+  NuxtLink(v-else, to="/login") Login
 </template>
 
 <script setup>
 const cart = useCart()
+const auth = useAuth();
+const pageVisitCount = ref(0);
+// onMounted(() => {
+//   pageVisitCount.value = usePageVisitCount();
+// });
+function logout () {
+  auth.value.isAuthenticated = false;
+}
 </script>
