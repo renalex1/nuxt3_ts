@@ -1,4 +1,14 @@
 <template lang="pug">
-NuxtLink(to="/") Home
-NuxtLink(to="about") About
+div Hello About
+
+
 </template>
+
+<script setup>
+
+definePageMeta({
+  // Disable any layouts for example login page
+  layout: false
+})
+
+</script>

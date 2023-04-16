@@ -1,6 +1,6 @@
 <template lang="pug">
-NuxtLink(to="/") Home
-NuxtLink(to="about") About
+div Hello Home
+
 </template>
 
 <script setup></script>
