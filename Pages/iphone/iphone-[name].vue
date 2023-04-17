@@ -42,4 +42,5 @@ const addToCart = () => {
 useHead({
   title: `Nuxt3 - Iphone ${route.params.name.toString().replaceAll('-', ' ')}`
 })
+
 </script>
