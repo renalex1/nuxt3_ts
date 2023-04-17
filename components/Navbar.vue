@@ -16,10 +16,10 @@ nav.bg-purple-900.shadow-lg.p-3.text-white.text-lg.flex.justify-between
 const cart = useCart()
 const auth = useAuth();
 const pageVisitCount = ref(0);
-// onMounted(() => {
-//   pageVisitCount.value = usePageVisitCount();
-// });
-function logout () {
+onMounted(() => {
+  pageVisitCount.value = usePageVisitCount();
+});
+const logout = () => {
   auth.value.isAuthenticated = false;
 }
 </script>
